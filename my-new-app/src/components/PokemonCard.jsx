@@ -2,13 +2,15 @@ import React from "react";
 
 function PokemonCard() {
   const pokemon = pokemonList[1];
+  let imageElement = null;
+  if (pokemon.imgSrc) {
+    imageElement = <img src={pokemon.imgSrc} alt={pokemon.name} />;
+  } else {
+    imageElement = <p>???</p>;
+  }
   return (
     <figure>
-      {pokemon.imgSrc ? (
-        <img src={pokemon.imgSrc} alt={pokemon.name} />
-      ) : (
-        <p>???</p>
-      )}
+      {imageElement}
       <figcaption>{pokemon.name}</figcaption>
     </figure>
   );
